@@ -11,7 +11,7 @@
 @implementation UIView (Extensions)
 
 + (instancetype)createFromNibFile {
-    return [[[NSBundle mainBundle] loadNibNamed:NSStringFromClass([self class]) owner:nil options:nil] firstObject];
+    return [[[NSBundle mainBundle] loadNibNamed:NSStringFromClass(self) owner:nil options:nil] firstObject];
 }
 
 @end
