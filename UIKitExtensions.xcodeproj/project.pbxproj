@@ -20,6 +20,7 @@
 		E19BFF1A1AEE3CD100E4398E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E19BFF191AEE3CD100E4398E /* UIKit.framework */; };
 		E19BFF1C1AEE3DEF00E4398E /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E19BFF1B1AEE3DEF00E4398E /* QuartzCore.framework */; };
 		E19BFF1E1AEE3F9100E4398E /* UIKitExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = E19BFF1D1AEE3F9100E4398E /* UIKitExtensions.m */; };
+		E1DF47331B04387000A78E9F /* UIDevice+Extensions.m in Sources */ = {isa = PBXBuildFile; fileRef = E1DF47321B04387000A78E9F /* UIDevice+Extensions.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,6 +70,8 @@
 		E19BFF191AEE3CD100E4398E /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		E19BFF1B1AEE3DEF00E4398E /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		E19BFF1D1AEE3F9100E4398E /* UIKitExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIKitExtensions.m; sourceTree = "<group>"; };
+		E1DF47311B04387000A78E9F /* UIDevice+Extensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIDevice+Extensions.h"; sourceTree = "<group>"; };
+		E1DF47321B04387000A78E9F /* UIDevice+Extensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIDevice+Extensions.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,6 +124,8 @@
 				E19BFF081AEE3B7500E4398E /* UIView+Extensions.m */,
 				E19BFF011AEE3B7500E4398E /* UIFont+Extensions.h */,
 				E19BFF021AEE3B7500E4398E /* UIFont+Extensions.m */,
+				E1DF47311B04387000A78E9F /* UIDevice+Extensions.h */,
+				E1DF47321B04387000A78E9F /* UIDevice+Extensions.m */,
 				E19BFF051AEE3B7500E4398E /* UIScreen+Extensions.h */,
 				E19BFF061AEE3B7500E4398E /* UIScreen+Extensions.m */,
 				E19BFEFF1AEE3B7500E4398E /* UIColor+Extensions.h */,
@@ -244,6 +249,7 @@
 				E19BFF0A1AEE3B7500E4398E /* UIBarButtonItem+Extensions.m in Sources */,
 				E19BFF0E1AEE3B7500E4398E /* UIImage+Extensions.m in Sources */,
 				E19BFF1E1AEE3F9100E4398E /* UIKitExtensions.m in Sources */,
+				E1DF47331B04387000A78E9F /* UIDevice+Extensions.m in Sources */,
 				E19BFF101AEE3B7500E4398E /* UIView+Extensions.m in Sources */,
 				E19BFF0F1AEE3B7500E4398E /* UIScreen+Extensions.m in Sources */,
 				E19BFF0B1AEE3B7500E4398E /* UIButton+Extensions.m in Sources */,

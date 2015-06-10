@@ -16,4 +16,5 @@
 #import "UIScreen+Extensions.h"
 #import "UIView+Extensions.h"
 #import "UIImage+Extensions.h"
+#import "UIDevice+Extensions.h"
 
