@@ -21,6 +21,7 @@
 		E19BFF1C1AEE3DEF00E4398E /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E19BFF1B1AEE3DEF00E4398E /* QuartzCore.framework */; };
 		E19BFF1E1AEE3F9100E4398E /* UIKitExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = E19BFF1D1AEE3F9100E4398E /* UIKitExtensions.m */; };
 		E1DF47331B04387000A78E9F /* UIDevice+Extensions.m in Sources */ = {isa = PBXBuildFile; fileRef = E1DF47321B04387000A78E9F /* UIDevice+Extensions.m */; };
+		E1FBA5A41B73A6C80037853C /* UIViewController+Extensions.m in Sources */ = {isa = PBXBuildFile; fileRef = E1FBA5A31B73A6C80037853C /* UIViewController+Extensions.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -72,6 +73,8 @@
 		E19BFF1D1AEE3F9100E4398E /* UIKitExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIKitExtensions.m; sourceTree = "<group>"; };
 		E1DF47311B04387000A78E9F /* UIDevice+Extensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIDevice+Extensions.h"; sourceTree = "<group>"; };
 		E1DF47321B04387000A78E9F /* UIDevice+Extensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIDevice+Extensions.m"; sourceTree = "<group>"; };
+		E1FBA5A21B73A6C80037853C /* UIViewController+Extensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+Extensions.h"; sourceTree = "<group>"; };
+		E1FBA5A31B73A6C80037853C /* UIViewController+Extensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+Extensions.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -138,6 +141,8 @@
 				E19BFEFA1AEE3B7500E4398E /* UIApplication+Extensions.m */,
 				E19BFEFB1AEE3B7500E4398E /* UIBarButtonItem+Extensions.h */,
 				E19BFEFC1AEE3B7500E4398E /* UIBarButtonItem+Extensions.m */,
+				E1FBA5A21B73A6C80037853C /* UIViewController+Extensions.h */,
+				E1FBA5A31B73A6C80037853C /* UIViewController+Extensions.m */,
 			);
 			path = UIKitExtensions;
 			sourceTree = "<group>";
@@ -256,6 +261,7 @@
 				E19BFF091AEE3B7500E4398E /* UIApplication+Extensions.m in Sources */,
 				E19BFF0C1AEE3B7500E4398E /* UIColor+Extensions.m in Sources */,
 				E19BFF0D1AEE3B7500E4398E /* UIFont+Extensions.m in Sources */,
+				E1FBA5A41B73A6C80037853C /* UIViewController+Extensions.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
