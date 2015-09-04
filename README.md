@@ -6,7 +6,7 @@ Some Extensions Categories for UIKit
 #### CocoaPods
 
 ```objc
-pod 'UIKitExtensions', :git => 'https://github.com/Tinghui/UIKitExtensions.git', :tag => '1.0.2'
+pod 'UIKitExtensions', :git => 'https://github.com/Tinghui/UIKitExtensions.git', :tag => '1.0.3'
 ```
 
 #### Usage
@@ -14,3 +14,5 @@ pod 'UIKitExtensions', :git => 'https://github.com/Tinghui/UIKitExtensions.git',
 ```objc
 #import <UIKitExtensions/UIKitExtensions.h>
 ```
+
+
