@@ -15,46 +15,7 @@
 
 @implementation UIImage (Extensions)
 
-+ (UIImage *)captureImageFromView:(UIView *)view inRect:(CGRect)rect
-{
-    if (view == nil || CGRectIsEmpty(rect)) {
-        return nil;
-    }
-    
-    // Create a graphics context with the target size
-    // On iOS 4 and later, use UIGraphicsBeginImageContextWithOptions to take the scale into consideration
-    // On iOS prior to 4, fall back to use UIGraphicsBeginImageContext
-    CGSize imageSize = rect.size;
-    UIGraphicsBeginImageContextWithOptions(imageSize, view.opaque, [[UIScreen mainScreen] scale]);
-    
-    CGContextRef context = UIGraphicsGetCurrentContext();
-    
-    // -renderInContext: renders in the coordinate space of the layer,
-    // so we must first apply the layer's geometry to the graphics context
-    CGContextSaveGState(context);
-    // Center the context around the view's anchor point
-    CGContextTranslateCTM(context, [view center].x, [view center].y);
-    // Apply the view's transform about the anchor point
-    CGContextConcatCTM(context, [view transform]);
-    // Offset by the portion of the bounds left of and above the anchor point
-    CGContextTranslateCTM(context,
-                          -[view bounds].size.width * [[view layer] anchorPoint].x,
-                          -[view bounds].size.height * [[view layer] anchorPoint].y);
-    
-    // Render the layer hierarchy to the current context
-    [[view layer] renderInContext:context];
-    
-    // Restore the context
-    CGContextRestoreGState(context);
-    
-    // Retrieve the screenshot image
-    UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
-    
-    UIGraphicsEndImageContext();
-    
-    return image;
-}
-
+#pragma mark - Save
 - (BOOL)saveToPath:(NSString *)filePath {
     if (self == nil || filePath == nil || [filePath isEqualToString:@""]) {
         return NO;
@@ -91,24 +52,38 @@
     return NO;
 }
 
-- (UIImage *)resizedImageWithSize:(CGSize)size
-{
-    if (size.width <= 0.0 || size.height <= 0.0) {
+#pragma mark - Capture
++ (UIImage *)capturedImageFromView:(UIView *)view inRect:(CGRect)rect {
+    if (view == nil || CGRectIsEmpty(rect)) {
         return nil;
     }
     
-    UIGraphicsBeginImageContext(size);
-    [self drawInRect:CGRectMake(0, 0, size.width, size.height)];
-    UIImage *scaledImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsBeginImageContextWithOptions(view.bounds.size, view.opaque, [UIScreen mainScreen].scale);
+    
+    if ([view respondsToSelector:@selector(drawViewHierarchyInRect:afterScreenUpdates:)]) {
+        [view drawViewHierarchyInRect:view.bounds afterScreenUpdates:YES];
+    }
+    else {
+        [view.layer renderInContext:UIGraphicsGetCurrentContext()];
+    }
+    
+    UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
     
-    return scaledImage;
+    return [image capturedImageInRect:rect];
 }
 
-- (UIImage *)capturedImageInRect:(CGRect)rect
-{
++ (UIImage *)capturedImageFromView:(UIView *)view {
+    return [self capturedImageFromView:view inRect:view.bounds];
+}
+
+- (UIImage *)capturedImageInRect:(CGRect)rect {
     if (CGRectIsEmpty(rect)) {
         return nil;
+    }
+    
+    if (CGRectEqualToRect(rect, CGRectMake(0, 0, self.size.width, self.size.height))) {
+        return self;
     }
     
     CGImageRef cutCGImage = CGImageCreateWithImageInRect([self CGImage], rect);
@@ -118,8 +93,40 @@
     return cutImage;
 }
 
-- (UIImage *)normalOrientationImage
-{
+#pragma mark - Resize
+- (UIImage *)resizedImageToSize:(CGSize)size scale:(CGFloat)scale {
+    if (size.width <= 0.0 || size.height <= 0.0) {
+        return nil;
+    }
+    
+    if (fabs(self.size.width - size.width) < 0.000001
+        && fabs(self.size.height - size.height) < 0.000001
+        && fabs(self.scale - scale) < 0.000001) {
+        return self;
+    }
+    
+    UIGraphicsBeginImageContextWithOptions(size, NO, scale);
+    [self drawInRect:CGRectMake(0, 0, size.width, size.height)];
+    UIImage *scaledImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    
+    return scaledImage;
+}
+
+- (UIImage *)resizedImageToSize:(CGSize)size {
+    return [self resizedImageToSize:size scale:1.0];
+}
+
+- (UIImage *)resizedImageToWidth:(CGFloat)width {
+    if (width <= 0.0) {
+        return nil;
+    }
+    
+    const CGFloat height = width / (self.size.width / self.size.height);
+    return [self resizedImageToSize:CGSizeMake(width, height)];
+}
+
+- (UIImage *)normalOrientationImage {
     if (self.imageOrientation == UIImageOrientationUp) {
         return self;
     }
@@ -133,8 +140,7 @@
 }
 
 #pragma mark - TintColor
-- (UIImage *)imageWithTintColor:(UIColor *)tintColor blendMode:(CGBlendMode)blendMode
-{
+- (UIImage *)tintImageWithColor:(UIColor *)tintColor blendMode:(CGBlendMode)blendMode {
     UIGraphicsBeginImageContextWithOptions(self.size, NO, 0.0);
     [tintColor setFill];
     CGRect bounds = CGRectMake(0, 0, self.size.width, self.size.height);
@@ -152,19 +158,16 @@
     return image;
 }
 
-- (UIImage *)imageWithTintColor:(UIColor *)tintColor
-{
-    return [self imageWithTintColor:tintColor blendMode:kCGBlendModeDestinationIn];
+- (UIImage *)tintImageWithColor:(UIColor *)tintColor {
+    return [self tintImageWithColor:tintColor blendMode:kCGBlendModeDestinationIn];
 }
 
-- (UIImage *)imageWithGradientTintColor:(UIColor *)tintColor
-{
-    return [self imageWithTintColor:tintColor blendMode:kCGBlendModeOverlay];
+- (UIImage *)gradientTintImageWithColor:(UIColor *)tintColor {
+    return [self tintImageWithColor:tintColor blendMode:kCGBlendModeOverlay];
 }
 
 
-- (UIImage *)grayImage
-{
+- (UIImage *)grayImage {
     CGImageRef  imageRef;
     imageRef = self.CGImage;
     
@@ -231,4 +234,7 @@
     
     return effectedImage;
 }
+
 @end
+
+

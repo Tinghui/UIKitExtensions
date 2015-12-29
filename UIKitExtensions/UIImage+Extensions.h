@@ -11,16 +11,7 @@
 
 @interface UIImage (Extensions)
 
-/**
- *  Capture image from view whthin a rect
- *
- *  @param view The view which will be captured
- *  @param rect The rect of captured area in the view.
- *
- *  @return Captured image.
- */
-+ (UIImage *)captureImageFromView:(UIView *)view inRect:(CGRect)rect;
-
+#pragma mark - Save
 /**
  *  Save image to file path
  *
@@ -30,14 +21,21 @@
  */
 - (BOOL)saveToPath:(NSString *)filePath;
 
+#pragma mark - Capture
 /**
- *  Get the resized image with size.
+ *  Capture image from view whthin a rect
  *
- *  @param size New size image will be resized to.
+ *  @param view The view which will be captured
+ *  @param rect The rect of captured area in the view.
  *
- *  @return Resized image.
+ *  @return Captured image.
  */
-- (UIImage *)resizedImageWithSize:(CGSize)size;
++ (UIImage *)capturedImageFromView:(UIView *)view inRect:(CGRect)rect;
+
+/*!
+ *  This method is equivalent to calling the +capturedImageFromView:inRect: method with the rect of view.bounds
+ */
++ (UIImage *)capturedImageFromView:(UIView *)view;
 
 /**
  *  Get the capatured image whthin rect
@@ -48,6 +46,31 @@
  */
 - (UIImage *)capturedImageInRect:(CGRect)rect;
 
+#pragma mark - Resize
+/*!
+ *  Get the resized image with new size.
+ *
+ *  @param size  New size image will be resized to.
+ *  @param scale New image scale.
+ *
+ *  @return Resized image.
+ */
+- (UIImage *)resizedImageToSize:(CGSize)size scale:(CGFloat)scale;
+
+/*!
+ *  This method is equivalent to calling the -resizedImageToSize:scale: method with the scale factor of 1.0.
+ */
+- (UIImage *)resizedImageToSize:(CGSize)size;
+
+/*!
+ *  Get the resized image with new width.
+ *
+ *  @param width New image width.
+ *
+ *  @return Resized image. image will be scale aspect to new width.
+ */
+- (UIImage *)resizedImageToWidth:(CGFloat)width;
+
 /**
  *  Get the image whith a normal orientation.
  *
@@ -56,9 +79,10 @@
 - (UIImage *)normalOrientationImage;
 
 #pragma mark - TintColor
-- (UIImage *)imageWithTintColor:(UIColor *)tintColor;
-- (UIImage *)imageWithGradientTintColor:(UIColor *)tintColor;
-- (UIImage *)imageWithTintColor:(UIColor *)tintColor blendMode:(CGBlendMode)blendMode;
+- (UIImage *)tintImageWithColor:(UIColor *)tintColor;
+- (UIImage *)gradientTintImageWithColor:(UIColor *)tintColor;
+- (UIImage *)tintImageWithColor:(UIColor *)tintColor blendMode:(CGBlendMode)blendMode;
 - (UIImage *)grayImage;
 
 @end
+
