@@ -10,7 +10,7 @@
 
 @implementation UIApplication (Extensions)
 
-+ (UIViewController*)topmostViewController {
++ (nonnull UIViewController*)topmostViewController {
     UIViewController *vc = [[[UIApplication sharedApplication].windows firstObject] rootViewController];
     while (vc.presentedViewController) {
         vc = vc.presentedViewController;
@@ -23,7 +23,7 @@
     return vc;
 }
 
-+ (void)gotoAppStoreUserReviewsPageOfApp:(NSString *)appId {
++ (void)gotoAppStoreUserReviewsPageOfApp:(nonnull NSString *)appId {
     if ([appId length] <= 0) {
         return;
     }

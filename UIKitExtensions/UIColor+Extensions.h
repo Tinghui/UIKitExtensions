@@ -11,14 +11,12 @@
 
 #define RGBColor(r, g, b)           RGBAColor((r), (g), (b), 1.0f)
 #define RGBAColor(r, g, b, a)       [UIColor colorWithRed:(r)/255.00f green:(g)/255.00f blue:(b)/255.00f alpha:(a)]
-#define HexColor(x)                 HexAlphaColor(x, 1.0f)
-#define HexAlphaColor(x, a)         [UIColor colorWithRed:((float)(((x) & 0xFF0000) >> 16))/255.0f \
-                                        green:((float)(((x) & 0xFF00) >> 8))/255.0f \
-                                        blue:((float)((x) & 0xFF))/255.0f \
-                                        alpha:(a)]
 
 @interface UIColor (Extensions)
 
-+ (UIColor *)colorWithHexColorString:(NSString *)string;
++ (nonnull UIColor *)hexColor:(NSUInteger)value;
++ (nonnull UIColor *)hexColor:(NSUInteger)value withAlpha:(CGFloat)alpha;
+
++ (nullable UIColor *)colorWithHexColorString:(nonnull NSString *)string;
 
 @end

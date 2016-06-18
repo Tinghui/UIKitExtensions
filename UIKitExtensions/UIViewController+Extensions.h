@@ -24,8 +24,8 @@
  *
  *  @return The view controller corresponding to the specified identifier string in the specified storyboard. If no view controller is associated with the identifier, this method throws an exception.
  */
-+ (instancetype)createFromStoryboardWithName:(NSString *)storyboardName
-                                  identifier:(NSString *)identifier;
++ (nullable __kindof UIViewController *)createFromStoryboardWithName:(nonnull NSString *)storyboardName
+                                                          identifier:(nonnull NSString *)identifier;
 
 /*!
  *  Create an view controller from storyboard
@@ -36,7 +36,7 @@
  *
  *  @return The view controller which uses it's class name as the identifier string in the specified storyboard. If no view controller is associated with the string, this method throws an exception.
  */
-+ (instancetype)createFromStoryboardWithName:(NSString *)storyboardName;
++ (nullable __kindof UIViewController *)createFromStoryboardWithName:(nonnull NSString *)storyboardName;
 
 
 #pragma mark - Nib
@@ -47,14 +47,14 @@
  *
  *  @return A newly initialized UIViewController object
  */
-+ (instancetype)createFromNibFile;
++ (nullable instancetype)createFromNibFile;
 
 @end
 
 
 @protocol StoryboardCreating <NSObject>
 @required
-+ (instancetype)createFromStoryboard;
++ (nullable __kindof UIViewController *)createFromStoryboard;
 @end
 
 

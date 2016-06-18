@@ -11,6 +11,6 @@
 @interface UIView (Extensions)
 
 /// 从mainBundle中同类名的xib创建一个实例对象
-+ (instancetype)createFromNibFile;
++ (nullable instancetype)createFromNibFile;
 
 @end

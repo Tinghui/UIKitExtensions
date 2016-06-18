@@ -86,8 +86,11 @@
         return self;
     }
     
-    CGImageRef cutCGImage = CGImageCreateWithImageInRect([self CGImage], rect);
-    UIImage *cutImage = [[UIImage alloc] initWithCGImage:cutCGImage];
+    CGRect rectInCGImage = CGRectApplyAffineTransform(rect, CGAffineTransformMakeScale(self.scale, self.scale));
+    CGImageRef cutCGImage = CGImageCreateWithImageInRect([self CGImage], rectInCGImage);
+    UIImage *cutImage = [[UIImage alloc] initWithCGImage:cutCGImage
+                                                   scale:self.scale
+                                             orientation:self.imageOrientation];
     CGImageRelease(cutCGImage);
     
     return cutImage;

@@ -10,7 +10,18 @@
 
 @implementation UIColor (Extensions)
 
-+ (UIColor *)colorWithHexColorString:(NSString *)string {
++ (nonnull UIColor *)hexColor:(NSUInteger)value {
+    return [self hexColor:value withAlpha:1.0];
+}
+
++ (UIColor *)hexColor:(NSUInteger)value withAlpha:(CGFloat)alpha {
+    return [UIColor colorWithRed:((float)(((value) & 0xFF0000) >> 16)) / 255.0f
+                           green:((float)(((value) & 0xFF00) >> 8)) / 255.0f
+                            blue:((float)((value) & 0xFF)) / 255.0f
+                           alpha:alpha];
+}
+
++ (nullable UIColor *)colorWithHexColorString:(nonnull NSString *)string {
     NSString *colorString = [[string stringByTrimmingCharactersInSet:
                               [NSCharacterSet whitespaceAndNewlineCharacterSet]] uppercaseString];
     //String should be 6 or 8 characters

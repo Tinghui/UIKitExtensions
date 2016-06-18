@@ -10,9 +10,9 @@
 
 @interface UIApplication (Extensions)
 
-+ (UIViewController*)topmostViewController;
++ (nonnull UIViewController*)topmostViewController;
 
-+ (void)gotoAppStoreUserReviewsPageOfApp:(NSString *)appId;
++ (void)gotoAppStoreUserReviewsPageOfApp:(nonnull NSString *)appId;
 
 
 @end

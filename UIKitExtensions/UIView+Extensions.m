@@ -10,7 +10,7 @@
 
 @implementation UIView (Extensions)
 
-+ (instancetype)createFromNibFile {
++ (nullable instancetype)createFromNibFile {
     return [[[NSBundle mainBundle] loadNibNamed:NSStringFromClass(self) owner:nil options:nil] firstObject];
 }
 

@@ -16,19 +16,19 @@
 @implementation UIViewController (InterfaceBuilder)
 
 #pragma mark - Storyboard
-+ (instancetype)createFromStoryboardWithName:(NSString *)storyboardName
-                                  identifier:(NSString *)identifier {
++ (nullable __kindof UIViewController *)createFromStoryboardWithName:(nonnull NSString *)storyboardName
+                                                          identifier:(nonnull NSString *)identifier {
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:storyboardName bundle:nil];
     return [storyboard instantiateViewControllerWithIdentifier:identifier];
 }
 
-+ (instancetype)createFromStoryboardWithName:(NSString *)storyboardName {
++ (nullable __kindof UIViewController *)createFromStoryboardWithName:(nonnull NSString *)storyboardName {
     return [self createFromStoryboardWithName:storyboardName
                                    identifier:NSStringFromClass(self)];
 }
 
 #pragma mark - Nib
-+ (instancetype)createFromNibFile {
++ (nullable instancetype)createFromNibFile {
     return [[self alloc] initWithNibName:NSStringFromClass([self class]) bundle:nil];
 }
 
