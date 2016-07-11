@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E12412FA1D334DAA00BD7E31 /* UINavigationController+Extensions.m in Sources */ = {isa = PBXBuildFile; fileRef = E12412F91D334DAA00BD7E31 /* UINavigationController+Extensions.m */; };
 		E19BFEE31AEE3B5200E4398E /* UIKitExtensions.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = E19BFEE21AEE3B5200E4398E /* UIKitExtensions.h */; };
 		E19BFEEB1AEE3B5200E4398E /* libUIKitExtensions.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E19BFEDF1AEE3B5200E4398E /* libUIKitExtensions.a */; };
 		E19BFF091AEE3B7500E4398E /* UIApplication+Extensions.m in Sources */ = {isa = PBXBuildFile; fileRef = E19BFEFA1AEE3B7500E4398E /* UIApplication+Extensions.m */; };
@@ -48,6 +49,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		E12412F81D334DAA00BD7E31 /* UINavigationController+Extensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationController+Extensions.h"; sourceTree = "<group>"; };
+		E12412F91D334DAA00BD7E31 /* UINavigationController+Extensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationController+Extensions.m"; sourceTree = "<group>"; };
 		E19BFEDF1AEE3B5200E4398E /* libUIKitExtensions.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libUIKitExtensions.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		E19BFEE21AEE3B5200E4398E /* UIKitExtensions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UIKitExtensions.h; sourceTree = "<group>"; };
 		E19BFEEA1AEE3B5200E4398E /* UIKitExtensionsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UIKitExtensionsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -143,6 +146,8 @@
 				E19BFEFC1AEE3B7500E4398E /* UIBarButtonItem+Extensions.m */,
 				E1FBA5A21B73A6C80037853C /* UIViewController+Extensions.h */,
 				E1FBA5A31B73A6C80037853C /* UIViewController+Extensions.m */,
+				E12412F81D334DAA00BD7E31 /* UINavigationController+Extensions.h */,
+				E12412F91D334DAA00BD7E31 /* UINavigationController+Extensions.m */,
 			);
 			path = UIKitExtensions;
 			sourceTree = "<group>";
@@ -254,6 +259,7 @@
 				E19BFF0A1AEE3B7500E4398E /* UIBarButtonItem+Extensions.m in Sources */,
 				E19BFF0E1AEE3B7500E4398E /* UIImage+Extensions.m in Sources */,
 				E19BFF1E1AEE3F9100E4398E /* UIKitExtensions.m in Sources */,
+				E12412FA1D334DAA00BD7E31 /* UINavigationController+Extensions.m in Sources */,
 				E1DF47331B04387000A78E9F /* UIDevice+Extensions.m in Sources */,
 				E19BFF101AEE3B7500E4398E /* UIView+Extensions.m in Sources */,
 				E19BFF0F1AEE3B7500E4398E /* UIScreen+Extensions.m in Sources */,
