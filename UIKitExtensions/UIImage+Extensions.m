@@ -15,6 +15,17 @@
 
 @implementation UIImage (Extensions)
 
++ (UIImage *)imageWithColor:(UIColor *)color {
+    const CGRect rect = CGRectMake(0, 0, 3.0, 3.0);
+    UIGraphicsBeginImageContext(rect.size);
+    CGContextRef context = UIGraphicsGetCurrentContext();
+    CGContextSetFillColorWithColor(context, color.CGColor);
+    CGContextFillRect(context, rect);
+    UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    return [image resizableImageWithCapInsets:UIEdgeInsetsMake(1.0, 1.0, 1.0, 1.0)];
+}
+
 #pragma mark - Save
 - (BOOL)saveToPath:(NSString *)filePath {
     if (self == nil || filePath == nil || [filePath isEqualToString:@""]) {

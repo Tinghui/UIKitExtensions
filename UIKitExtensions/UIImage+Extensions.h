@@ -10,6 +10,15 @@
 #import <QuartzCore/QuartzCore.h>
 
 @interface UIImage (Extensions)
+/**
+ *  Create an image with specified color.
+ *
+ *  The image is resizable with capInsets UIEdgeInsetsMake(1.0, 1.0, 1.0, 1.0)
+ *
+ *  @param color The specified color
+ *  @return An image.
+ */
++ (nonnull UIImage *)imageWithColor:(nonnull UIColor *)color;
 
 #pragma mark - Save
 /**
@@ -85,4 +94,5 @@
 - (nonnull UIImage *)grayImage;
 
 @end
+
 
