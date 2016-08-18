@@ -8,15 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
-
-#define SystemVersionIs(v)           ([[[UIDevice currentDevice] systemVersion] compare:(v) options:NSNumericSearch] == NSOrderedSame)
-#define SystemVersionAbove(v)        ([[[UIDevice currentDevice] systemVersion] compare:(v) options:NSNumericSearch] == NSOrderedDescending)
-#define SystemVersionAboveOrIs(v)    ([[[UIDevice currentDevice] systemVersion] compare:(v) options:NSNumericSearch] != NSOrderedAscending)
-#define SystemVersionBelow(v)        ([[[UIDevice currentDevice] systemVersion] compare:(v) options:NSNumericSearch] == NSOrderedAscending)
-#define SystemVersionBelowOrIs(v)    ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] != NSOrderedDescending)
-
-
-
 @interface UIDevice (Extensions)
+
++ (BOOL)systemVersionBelow:(nonnull NSString *)version;
++ (BOOL)systemVersionBelowOrIs:(nonnull NSString *)version;
++ (BOOL)systemVersionIs:(nonnull NSString *)version;
++ (BOOL)systemVersionAbove:(nonnull NSString *)version;
++ (BOOL)systemVersionAboveOrIs:(nonnull NSString *)version;
 
 @end

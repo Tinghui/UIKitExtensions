@@ -10,4 +10,24 @@
 
 @implementation UIDevice (Extensions)
 
++ (BOOL)systemVersionBelow:(nonnull NSString *)version {
+    return ([[[self currentDevice] systemVersion] compare:version options:NSNumericSearch] == NSOrderedAscending);
+}
+
++ (BOOL)systemVersionBelowOrIs:(nonnull NSString *)version {
+    return ([[[self currentDevice] systemVersion] compare:version options:NSNumericSearch] != NSOrderedDescending);
+}
+
++ (BOOL)systemVersionIs:(nonnull NSString *)version {
+    return ([[[self currentDevice] systemVersion] compare:version options:NSNumericSearch] == NSOrderedSame);
+}
+
++ (BOOL)systemVersionAbove:(nonnull NSString *)version {
+    return ([[[self currentDevice] systemVersion] compare:version options:NSNumericSearch] == NSOrderedDescending);
+}
+
++ (BOOL)systemVersionAboveOrIs:(nonnull NSString *)version {
+    return ([[[self currentDevice] systemVersion] compare:version options:NSNumericSearch] != NSOrderedAscending);
+}
+
 @end
