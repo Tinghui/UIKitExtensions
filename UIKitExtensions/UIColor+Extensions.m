@@ -10,6 +10,26 @@
 
 @implementation UIColor (Extensions)
 
+#define RGBColor(r, g, b)           RGBAColor((r), (g), (b), 1.0f)
+#define RGBAColor(r, g, b, a)       [UIColor colorWithRed:(r)/255.00f green:(g)/255.00f blue:(b)/255.00f alpha:(a)]
+
++ (nonnull UIColor *)rgbColor:(nonnull NSString *)colorString {
+    return [self rgbaColor:[colorString stringByAppendingString:@",1.0"]];
+}
+
++ (nonnull UIColor *)rgbaColor:(nonnull NSString *)colorString {
+    NSArray<NSString *> *components = [colorString componentsSeparatedByString:@","];
+    if (components.count != 4) {
+        [NSException raise:NSInvalidArgumentException
+                    format:@"Invalid argument: @\"%@\", rgbaColor needs 4 components, ex. @\"255.00,255.00,255.00,1.0\".", colorString];
+    }
+    return [UIColor colorWithRed:([components[0] floatValue] / 255.00)
+                           green:([components[1] floatValue] / 255.00)
+                            blue:([components[2] floatValue] / 255.00)
+                           alpha:([components[3] floatValue])];
+}
+
+
 + (nonnull UIColor *)hexColor:(NSUInteger)value {
     return [self hexColor:value withAlpha:1.0];
 }
@@ -22,14 +42,8 @@
 }
 
 + (nullable UIColor *)colorWithHexColorString:(nonnull NSString *)string {
-    NSString *colorString = [[string stringByTrimmingCharactersInSet:
-                              [NSCharacterSet whitespaceAndNewlineCharacterSet]] uppercaseString];
-    //String should be 6 or 8 characters
-    const NSInteger kNumberLength = 6;
-    if ([colorString length] < kNumberLength) {
-        return nil;
-    }
-    
+    NSString *colorString = [string stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+    colorString = [colorString uppercaseString];
     //strip 0X or # if it appears
     if ([colorString hasPrefix:@"0X"]) {
         colorString = [colorString substringFromIndex:2];
@@ -37,8 +51,12 @@
     if ([colorString hasPrefix:@"#"]) {
         colorString = [colorString substringFromIndex:1];
     }
-    if ([colorString length] != kNumberLength) {
-        return nil;
+    
+    //String should be 6 characters
+    const NSInteger kNumberLength = 6;
+    if ([colorString length] < kNumberLength) {
+        [NSException raise:NSInvalidArgumentException
+                    format:@"Invalid argument: @\"%@\", hex color needs 6 characters except its prefix, ex. @\"0xFFFFFF\".", colorString];
     }
     
     //Separate into r, g, b substrings
