@@ -20,9 +20,8 @@
 #import "UIDevice+Extensions.h"
 
 /*!
- *  Font && Color && Image
+ *  Color && Image
  */
-#import "UIFont+Extensions.h"
 #import "UIColor+Extensions.h"
 #import "UIImage+Extensions.h"
 

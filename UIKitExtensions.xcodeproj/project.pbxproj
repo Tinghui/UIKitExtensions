@@ -14,7 +14,6 @@
 		E19BFF0A1AEE3B7500E4398E /* UIBarButtonItem+Extensions.m in Sources */ = {isa = PBXBuildFile; fileRef = E19BFEFC1AEE3B7500E4398E /* UIBarButtonItem+Extensions.m */; };
 		E19BFF0B1AEE3B7500E4398E /* UIButton+Extensions.m in Sources */ = {isa = PBXBuildFile; fileRef = E19BFEFE1AEE3B7500E4398E /* UIButton+Extensions.m */; };
 		E19BFF0C1AEE3B7500E4398E /* UIColor+Extensions.m in Sources */ = {isa = PBXBuildFile; fileRef = E19BFF001AEE3B7500E4398E /* UIColor+Extensions.m */; };
-		E19BFF0D1AEE3B7500E4398E /* UIFont+Extensions.m in Sources */ = {isa = PBXBuildFile; fileRef = E19BFF021AEE3B7500E4398E /* UIFont+Extensions.m */; };
 		E19BFF0E1AEE3B7500E4398E /* UIImage+Extensions.m in Sources */ = {isa = PBXBuildFile; fileRef = E19BFF041AEE3B7500E4398E /* UIImage+Extensions.m */; };
 		E19BFF0F1AEE3B7500E4398E /* UIScreen+Extensions.m in Sources */ = {isa = PBXBuildFile; fileRef = E19BFF061AEE3B7500E4398E /* UIScreen+Extensions.m */; };
 		E19BFF101AEE3B7500E4398E /* UIView+Extensions.m in Sources */ = {isa = PBXBuildFile; fileRef = E19BFF081AEE3B7500E4398E /* UIView+Extensions.m */; };
@@ -63,8 +62,6 @@
 		E19BFEFE1AEE3B7500E4398E /* UIButton+Extensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+Extensions.m"; sourceTree = "<group>"; };
 		E19BFEFF1AEE3B7500E4398E /* UIColor+Extensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Extensions.h"; sourceTree = "<group>"; };
 		E19BFF001AEE3B7500E4398E /* UIColor+Extensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Extensions.m"; sourceTree = "<group>"; };
-		E19BFF011AEE3B7500E4398E /* UIFont+Extensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIFont+Extensions.h"; sourceTree = "<group>"; };
-		E19BFF021AEE3B7500E4398E /* UIFont+Extensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIFont+Extensions.m"; sourceTree = "<group>"; };
 		E19BFF031AEE3B7500E4398E /* UIImage+Extensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Extensions.h"; sourceTree = "<group>"; };
 		E19BFF041AEE3B7500E4398E /* UIImage+Extensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Extensions.m"; sourceTree = "<group>"; };
 		E19BFF051AEE3B7500E4398E /* UIScreen+Extensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScreen+Extensions.h"; sourceTree = "<group>"; };
@@ -128,8 +125,6 @@
 				E19BFF1D1AEE3F9100E4398E /* UIKitExtensions.m */,
 				E19BFF071AEE3B7500E4398E /* UIView+Extensions.h */,
 				E19BFF081AEE3B7500E4398E /* UIView+Extensions.m */,
-				E19BFF011AEE3B7500E4398E /* UIFont+Extensions.h */,
-				E19BFF021AEE3B7500E4398E /* UIFont+Extensions.m */,
 				E1DF47311B04387000A78E9F /* UIDevice+Extensions.h */,
 				E1DF47321B04387000A78E9F /* UIDevice+Extensions.m */,
 				E19BFF051AEE3B7500E4398E /* UIScreen+Extensions.h */,
@@ -266,7 +261,6 @@
 				E19BFF0B1AEE3B7500E4398E /* UIButton+Extensions.m in Sources */,
 				E19BFF091AEE3B7500E4398E /* UIApplication+Extensions.m in Sources */,
 				E19BFF0C1AEE3B7500E4398E /* UIColor+Extensions.m in Sources */,
-				E19BFF0D1AEE3B7500E4398E /* UIFont+Extensions.m in Sources */,
 				E1FBA5A41B73A6C80037853C /* UIViewController+Extensions.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
