@@ -11,6 +11,7 @@
 #error This file must be compiled with ARC. Use -fobjc-arc flag (or convert project to ARC).
 #endif
 
+#import <QuartzCore/QuartzCore.h>
 #import "UIImage+Extensions.h"
 
 @implementation UIImage (Extensions)
