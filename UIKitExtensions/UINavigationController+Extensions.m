@@ -12,7 +12,7 @@
 
 - (nullable NSArray<__kindof UIViewController *> *)popToPreviousViewController:(nonnull UIViewController *)controller animated:(BOOL)animated {
     UIViewController *previousController = nil;
-    NSArray<__kindof UIViewController *> *controllers = self.navigationController.viewControllers;
+    NSArray<__kindof UIViewController *> *controllers = self.viewControllers;
     for (NSInteger i = controllers.count - 1; i > 0; i--) {
         if (controllers[i] == self && i - 1 >= 0) {
             previousController = controllers[i-1];
