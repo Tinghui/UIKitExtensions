@@ -35,13 +35,19 @@
  *
  *  @param view The view which will be captured
  *  @param rect The rect of captured area in the view.
+ *  @param afterUpdates A Boolean value that indicates whether the snapshot should be rendered after recent changes have been incorporated. Specify the value NO if you want to render a snapshot in the view hierarchy’s current state, which might not include recent changes.
  *
  *  @return Captured image.
+ */
++ (nullable UIImage *)capturedImageFromView:(nullable UIView *)view inRect:(CGRect)rect afterScreenUpdates:(BOOL)afterUpdates;
+
+/**
+ *  Same with [self capturedImageFromView:view inRect:rect afterScreenUpdates:YES]
  */
 + (nullable UIImage *)capturedImageFromView:(nullable UIView *)view inRect:(CGRect)rect;
 
 /*!
- *  This method is equivalent to calling the +capturedImageFromView:inRect: method with the rect of view.bounds
+ *  Same with [self capturedImageFromView:view inRect:view.bounds]
  */
 + (nullable UIImage *)capturedImageFromView:(nullable UIView *)view;
 

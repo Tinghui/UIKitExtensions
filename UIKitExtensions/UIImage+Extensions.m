@@ -65,7 +65,7 @@
 }
 
 #pragma mark - Capture
-+ (UIImage *)capturedImageFromView:(UIView *)view inRect:(CGRect)rect {
++ (UIImage *)capturedImageFromView:(UIView *)view inRect:(CGRect)rect afterScreenUpdates:(BOOL)afterUpdates {
     if (view == nil || CGRectIsEmpty(rect)) {
         return nil;
     }
@@ -73,7 +73,7 @@
     UIGraphicsBeginImageContextWithOptions(view.bounds.size, view.opaque, [UIScreen mainScreen].scale);
     
     if ([view respondsToSelector:@selector(drawViewHierarchyInRect:afterScreenUpdates:)]) {
-        [view drawViewHierarchyInRect:view.bounds afterScreenUpdates:YES];
+        [view drawViewHierarchyInRect:view.bounds afterScreenUpdates:afterUpdates];
     }
     else {
         [view.layer renderInContext:UIGraphicsGetCurrentContext()];
@@ -83,6 +83,10 @@
     UIGraphicsEndImageContext();
     
     return [image capturedImageInRect:rect];
+}
+
++ (UIImage *)capturedImageFromView:(UIView *)view inRect:(CGRect)rect {
+    return [self capturedImageFromView:view inRect:rect afterScreenUpdates:YES];
 }
 
 + (UIImage *)capturedImageFromView:(UIView *)view {
