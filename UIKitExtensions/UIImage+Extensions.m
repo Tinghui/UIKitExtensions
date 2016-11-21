@@ -160,7 +160,7 @@
 
 #pragma mark - TintColor
 - (UIImage *)tintImageWithColor:(UIColor *)tintColor blendMode:(CGBlendMode)blendMode {
-    UIGraphicsBeginImageContextWithOptions(self.size, NO, 0.0);
+    UIGraphicsBeginImageContextWithOptions(self.size, NO, self.scale);
     [tintColor setFill];
     CGRect bounds = CGRectMake(0, 0, self.size.width, self.size.height);
     UIRectFill(bounds);
