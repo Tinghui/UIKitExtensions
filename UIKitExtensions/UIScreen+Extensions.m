@@ -31,7 +31,7 @@
 }
 
 + (BOOL)heightIsEqualOrGreaterThaniPhone6Plus {
-    return [self height] >= (736.0 + 0.000001);
+    return [self height] + 0.000001 >= 736.0;
 }
 
 @end
