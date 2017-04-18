@@ -37,9 +37,24 @@
 + (nonnull UIColor *)hexColor:(NSUInteger)value withAlpha:(CGFloat)alpha;
 
 /**
- *  Create color with hex color string
+ *  Create color with hex color string.
+ * 
+ *  Hex color string supports 6 chars (RGB) or 8 chars (ARGB) string.
+ *
  *  @param string hex color string. For example: @@"0xFFFFFF" or @@"#FFFFFF"
  */
 + (nullable UIColor *)colorWithHexColorString:(nonnull NSString *)string;
 
+/**
+ Hex RGBA string convert to ARGB string.
+ 
+ ex. "#RRGGBBAA" to "#AARRGGBB" (R: red value, G: green value, B: blue value, A: alpha value)
+
+ @param string RGBA string
+ @return ARGB string.
+ */
++ (nullable NSString *)hexRGBAStringToARGBString:(nullable NSString *)string;
+
 @end
+
+
