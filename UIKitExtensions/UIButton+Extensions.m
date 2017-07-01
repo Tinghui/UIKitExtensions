@@ -54,23 +54,20 @@
 }
 
 - (void)centerVerticallyWithPadding:(float)padding {
-    CGSize imageSize = CGSizeMake(CGRectGetWidth(self.imageView.bounds),
-                                  CGRectGetHeight(self.imageView.bounds));
-    CGSize titleSize = CGSizeMake(CGRectGetWidth(self.titleLabel.bounds),
-                                  CGRectGetHeight(self.titleLabel.bounds));
+    // from: https://codedump.io/share/mENwT9mk1ttE/1/uibutton-how-to-center-an-image-and-a-text-using-imageedgeinsets-and-titleedgeinsets
+    // lower the text and push it left so it appears centered
+    //  below the image
+    CGSize imageSize = self.imageView.image.size;
+    self.titleEdgeInsets = UIEdgeInsetsMake(0.0, - imageSize.width, - (imageSize.height + padding), 0.0);
     
-    CGFloat totalHeight = (imageSize.height + titleSize.height + padding);
+    // raise the image and push it right so it appears centered
+    //  above the text
+    CGSize titleSize = [self.titleLabel.text sizeWithAttributes:@{NSFontAttributeName: self.titleLabel.font}];
+    self.imageEdgeInsets = UIEdgeInsetsMake(- (titleSize.height + padding), 0.0, 0.0, - titleSize.width);
     
-    self.imageEdgeInsets = UIEdgeInsetsMake(- (totalHeight - imageSize.height),
-                                            0.0f,
-                                            0.0f,
-                                            - titleSize.width);
-    
-    self.titleEdgeInsets = UIEdgeInsetsMake(0.0f,
-                                            - imageSize.width,
-                                            - (totalHeight - titleSize.height),
-                                            0.0f);
-    
+    // increase the content height to avoid clipping
+    CGFloat edgeOffset = fabs(titleSize.height - imageSize.height) / 2.0;
+    self.contentEdgeInsets = UIEdgeInsetsMake(edgeOffset, 0.0, edgeOffset, 0.0);
 }
 
 @end
