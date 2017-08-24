@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "UIKitExtensions"
-  s.version      = "1.0.9"
+  s.version      = "1.1.0"
   s.summary      = "Some Extensions Categories for UIKit"
   s.homepage     = "https://github.com/Tinghui/UIKitExtensions"
   s.license      = 'MIT'

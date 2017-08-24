@@ -76,21 +76,29 @@
  */
 - (nullable UIImage *)resizedImageToSize:(CGSize)size;
 
-/*!
- *  Get the resized image with new width.
- *
- *  @param width New image width.
- *
- *  @return Resized image. image will be scale aspect to new width.
+/**
+ Get the resized image with new width.
+
+ @param width New image width.
+ @return Resized image. image will be scale aspect to new width.
  */
 - (nullable UIImage *)resizedImageToWidth:(CGFloat)width;
 
 /**
- *  Get the image whith a normal orientation.
- *
- *  @return The image whith a normal orientation.
+ Get the image whith a normal orientation.
+
+ @return The image whith a normal orientation.
  */
 - (nullable UIImage *)normalOrientationImage;
+
+/**
+ Resize image asynchronously
+
+ @param width resized width
+ @param rotate Whether ratate the resized image to a `normalOrientationImage`
+ @param completion Completion block which will return the resized image.
+ */
+- (void)resizeToWidth:(CGFloat)width rotateToNormalOrientation:(BOOL)rotate completion:(void(^_Nullable)(UIImage * _Nullable resizedImage))completion;
 
 #pragma mark - TintColor
 - (nonnull UIImage *)tintImageWithColor:(nonnull UIColor *)tintColor;

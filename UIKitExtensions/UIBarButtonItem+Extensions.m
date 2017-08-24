@@ -3,7 +3,7 @@
 //  UIKit-Extensions
 //
 //  Created by ZhangTinghui on 14-7-11.
-//  Copyright (c) 2014年 www.codingobjc.com. All rights reserved.
+//  Copyright (c) 2014年 blog.morefun.mobi. All rights reserved.
 //
 
 #import "UIBarButtonItem+Extensions.h"

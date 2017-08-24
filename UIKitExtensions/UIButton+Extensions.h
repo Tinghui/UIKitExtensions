@@ -3,7 +3,7 @@
 //  UIKit-Extensions
 //
 //  Created by ZhangTinghui on 14-8-14.
-//  Copyright (c) 2014年 www.codingobjc.com. All rights reserved.
+//  Copyright (c) 2014年 blog.morefun.mobi. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
@@ -11,18 +11,10 @@
 
 @interface UIButton (Extensions)
 
-#pragma mark -
-// with size (32, 32)
-+ (instancetype)createBarButtonItem:(UIBarButtonItem **)item
-                          withImage:(UIImage *)image
-                             target:(id)target
-                             action:(SEL)action;
+- (UIBarButtonItem *)embedInBarButtonItem;
 
-+ (instancetype)createBarButtonItem:(UIBarButtonItem **)item
-                     withButtonSize:(CGSize)size
-                              image:(UIImage *)image
-                             target:(id)target
-                             action:(SEL)action;
+#pragma mark - BackgroundColor
+- (void)setBackgroundColor:(UIColor *)backgroundColor forState:(UIControlState)state;
 
 #pragma mark - VerticallyLayout
 - (void)centerVertically;

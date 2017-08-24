@@ -158,6 +158,23 @@
     return normalImage;
 }
 
+- (void)resizeToWidth:(CGFloat)width rotateToNormalOrientation:(BOOL)rotate completion:(void(^)(UIImage *resizedImage))completion {
+    __block UIImage *processedImage = self;
+    dispatch_async(dispatch_get_global_queue(QOS_CLASS_DEFAULT, 0), ^(void){
+        //resize
+        processedImage = [processedImage resizedImageToWidth:width];
+        dispatch_async(dispatch_get_global_queue(QOS_CLASS_DEFAULT, 0), ^(void){
+            //rotate image to normal orientation
+            processedImage = (rotate? [processedImage normalOrientationImage]: processedImage);
+            if (completion) {
+                dispatch_async(dispatch_get_main_queue(), ^(void){
+                    completion(processedImage);
+                });
+            }
+        });
+    });
+}
+
 #pragma mark - TintColor
 - (UIImage *)tintImageWithColor:(UIColor *)tintColor blendMode:(CGBlendMode)blendMode {
     UIGraphicsBeginImageContextWithOptions(self.size, NO, self.scale);

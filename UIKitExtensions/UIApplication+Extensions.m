@@ -3,7 +3,7 @@
 //  UIKit-Extensions
 //
 //  Created by ZhangTinghui on 14-5-26.
-//  Copyright (c) 2014年 www.codingobjc.com. All rights reserved.
+//  Copyright (c) 2014年 blog.morefun.mobi. All rights reserved.
 //
 
 #import "UIApplication+Extensions.h"
@@ -11,7 +11,7 @@
 @implementation UIApplication (Extensions)
 
 + (nonnull UIViewController*)topmostViewController {
-    UIViewController *vc = [[[UIApplication sharedApplication].windows firstObject] rootViewController];
+    UIViewController *vc = [UIApplication sharedApplication].delegate.window.rootViewController;
     while (vc.presentedViewController) {
         vc = vc.presentedViewController;
     }
